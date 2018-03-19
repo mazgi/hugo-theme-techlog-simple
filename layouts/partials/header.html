@@ -7,7 +7,25 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font Awesome CDN: https://www.bootstrapcdn.com/fontawesome/ -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Open Graph: https://developers.facebook.com/docs/plugins/share-button -->
+    {{ if .Page.IsHome }}
     <title>{{ .Site.Title }}</title>
+    <meta property="og:title"         content="{{ .Site.Title }}" />
+    <meta property="og:type"          content="website" />
+    {{ else }}
+    <title>{{ .Site.Title }} :: {{ .Title }}</title>
+    <meta property="og:title"         content="{{ .Site.Title }} :: {{ .Title }}" />
+    <meta property="og:type"          content="article" />
+    {{ end }}
+    <meta property="og:url"           content="{{ .Permalink }}" />
+    <meta property="og:description"   content="{{ .Description }}" />
+    {{ range $ext := ( slice "png" "jpg" "jpeg" ) }}
+    {{ $ogImagePath := ( delimit ( slice "static/" $.File.Dir $.File.TranslationBaseName "/og" $ext ) "" "." ) }}
+    {{ if ( fileExists $ogImagePath ) }}
+    <meta property="og:image"         content="{{ $ogImagePath | absURL }}" />
+    {{ end }}
+    {{ end }}
+    <!-- /Open Graph -->
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -42,8 +60,20 @@
         </ul>
         <!-- /left, right -->
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}" target="_blank">tw</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" target="_blank">fb</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank">in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url={{ .Permalink }}" target="_blank">g+</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://b.hatena.ne.jp/entry/{{ .Permalink }}" target="_blank">b!</a>
           </li>
         </ul>
         <!-- /right -->
