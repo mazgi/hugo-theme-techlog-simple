@@ -52,9 +52,17 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbar_dropdown_lang">
               {{ range .Translations }}
-              <a class="dropdown-item" href="{{ .Permalink }}">({{ .Language.LanguageName }}) {{ .Title }}</a>
+              <a class="dropdown-item" href="{{ .Permalink }}">
+                <span class="badge badge-light">{{ .Language.LanguageName }}</span>
+                {{ .Title }}
+              </a>
               {{ end }}
             </div>
+          </li>
+          {{ end }}
+          {{ if not .IsHome }}
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: {{ .Date.Format "2006.01.02" }}</span>
           </li>
           {{ end }}
         </ul>
@@ -80,4 +88,3 @@
       </div>
     </nav>
     <main role="main" class="container-fluid col-sm-10 offset-sm-1">
-      <div class="row">

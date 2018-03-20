@@ -1,17 +1,20 @@
 {{ partial "header.html" . }}
-<div class="col-sm-3">
-</div>
-<div class="col-sm-6">
-  {{ $paginator := .Paginate ( .Data.Pages ) }}
-  {{ range $paginator.Pages }}
-  {{ partial "article.html" . }}
-  {{ end }}
-</div>
-<div class="col-sm-3">
-  <ul>
-    {{ range .Data.Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+<div class="row">
+  <div class="col-sm-9">
+    {{ $paginator := .Paginate ( .Data.Pages ) }}
+    {{ range $idx, $page := $paginator.Pages }}
+    {{ partial "article.html" $page }}
+    {{ if lt (add $idx 1) (len $paginator.Pages) }}
+    <hr/>
     {{ end }}
-  </ul>
+    {{ end }}
+  </div>
+  <div class="col-sm-3">
+    <ul>
+      {{ range .Data.Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
 </div>
 {{ partial "footer.html" . }}
