@@ -1,12 +1,16 @@
 {{ partial "header.html" . }}
-<h1>{{ .Site.Title }}</h1>
-<div>
-  {{ .Content }}
+<div class="col-sm-3">
 </div>
-<div>
+<div class="col-sm-6">
+  {{ $paginator := .Paginate ( .Data.Pages ) }}
+  {{ range $paginator.Pages }}
+  {{ partial "article.html" . }}
+  {{ end }}
+</div>
+<div class="col-sm-3">
   <ul>
     {{ range .Data.Pages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{ end }}
   </ul>
 </div>
