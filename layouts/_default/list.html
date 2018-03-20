@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+<div class="row">
+  <div class="col-lg-9">
+    {{ $paginator := .Paginate ( .Data.Pages ) }}
+    {{ range $idx, $page := $paginator.Pages }}
+    <article>
+      <div class="row">
+        <h1><a href="{{ .RelPermalink}}">{{ .Title }}</a></h1>
+      </div>
+      {{ .Content }}
+    </article>
+    {{ if lt (add $idx 1) (len $paginator.Pages) }}
+    <hr/>
+    {{ end }}
+    {{ end }}
+  </div>
+  <div class="col-lg-3">
+    <ul>
+      {{ range .Data.Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+{{ partial "footer.html" . }}

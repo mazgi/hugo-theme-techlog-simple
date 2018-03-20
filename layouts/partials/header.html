@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CDN: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome CDN: https://www.bootstrapcdn.com/fontawesome/ -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Open Graph: https://developers.facebook.com/docs/plugins/share-button -->
+    {{ if .Page.IsHome }}
+    <title>{{ .Site.Title }}</title>
+    <meta property="og:title"         content="{{ .Site.Title }}" />
+    <meta property="og:type"          content="website" />
+    {{ else }}
+    <title>{{ .Site.Title }} :: {{ .Title }}</title>
+    <meta property="og:title"         content="{{ .Site.Title }} :: {{ .Title }}" />
+    <meta property="og:type"          content="article" />
+    {{ end }}
+    <meta property="og:url"           content="{{ .Permalink }}" />
+    <meta property="og:description"   content="{{ .Description }}" />
+    {{ range $ext := ( slice "png" "jpg" "jpeg" ) }}
+    {{ $ogImagePath := ( delimit ( slice "static/" $.File.Dir $.File.TranslationBaseName "/og" $ext ) "" "." ) }}
+    {{ if ( fileExists $ogImagePath ) }}
+    <meta property="og:image"         content="{{ $ogImagePath | absURL }}" />
+    {{ end }}
+    {{ end }}
+    <!-- /Open Graph -->
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <ul class="navbar-nav">
+        {{ if .Site.GetPage "page" "about.md" }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ (.Site.GetPage "page" "about.md").RelPermalink }}">about</a>
+        </li>
+        {{ end }}
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        <!-- left -->
+        <ul class="navbar-nav mr-auto">
+          {{ if .IsTranslated }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ i18n "showTranslations" }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar_dropdown_lang">
+              {{ range .Translations }}
+              <a class="dropdown-item" href="{{ .Permalink }}">
+                <span class="badge badge-light">{{ .Language.LanguageName }}</span>
+                {{ .Title }}
+              </a>
+              {{ end }}
+            </div>
+          </li>
+          {{ end }}
+          {{ if not .IsHome }}
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: {{ .Date.Format "2006.01.02" }}</span>
+          </li>
+          {{ end }}
+        </ul>
+        <!-- /left, right -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}" target="_blank">tw</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" target="_blank">fb</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank">in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url={{ .Permalink }}" target="_blank">g+</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://b.hatena.ne.jp/entry/{{ .Permalink }}" target="_blank">b!</a>
+          </li>
+        </ul>
+        <!-- /right -->
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
