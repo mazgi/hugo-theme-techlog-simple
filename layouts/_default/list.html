@@ -3,7 +3,12 @@
   <div class="col-sm-9">
     {{ $paginator := .Paginate ( .Data.Pages ) }}
     {{ range $idx, $page := $paginator.Pages }}
-    {{ partial "article.html" $page }}
+    <article>
+      <div class="row">
+        <h2><a href="{{ .RelPermalink}}">{{ .Title }}</a></h2>
+      </div>
+      {{ .Content }}
+    </article>
     {{ if lt (add $idx 1) (len $paginator.Pages) }}
     <hr/>
     {{ end }}

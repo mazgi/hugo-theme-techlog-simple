@@ -1,7 +1,10 @@
 {{ partial "header.html" . }}
 <div class="row">
-  <div class="col-sm-12">
-    {{ partial "article.html" . }}
-  </div>
+  <article class="col-sm-12">
+    <div class="row">
+      <h1>{{ .Title }}</h1>
+    </div>
+    {{ .Content }}
+  </article>
 </div>
 {{ partial "footer.html" . }}
