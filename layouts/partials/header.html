@@ -10,20 +10,24 @@
     <!-- Open Graph: https://developers.facebook.com/docs/plugins/share-button -->
     {{ if .Page.IsHome }}
     <title>{{ .Site.Title }}</title>
-    <meta property="og:title"         content="{{ .Site.Title }}" />
-    <meta property="og:type"          content="website" />
+    <meta property="og:title"       content="{{ .Site.Title }}" />
+    <meta property="og:type"        content="website" />
     {{ else }}
     <title>{{ .Site.Title }} :: {{ .Title }}</title>
-    <meta property="og:title"         content="{{ .Site.Title }} :: {{ .Title }}" />
-    <meta property="og:type"          content="article" />
+    <meta property="og:title"       content="{{ .Site.Title }} :: {{ .Title }}" />
+    <meta property="og:type"        content="article" />
     {{ end }}
-    <meta property="og:url"           content="{{ .Permalink }}" />
-    <meta property="og:description"   content="{{ .Description }}" />
+    <meta property="og:url"         content="{{ .Permalink }}" />
+    <meta property="og:description" content="{{ .Description }}" />
     {{ range $ext := ( slice "png" "jpg" "jpeg" ) }}
-    {{ $ogImagePath := ( delimit ( slice "static/" $.File.Dir $.File.TranslationBaseName "/og" $ext ) "" "." ) }}
-    {{ if ( fileExists $ogImagePath ) }}
-    <meta property="og:image"         content="{{ $ogImagePath | absURL }}" />
+    {{ $ogImagePath := ( delimit ( slice $.File.Dir $.File.TranslationBaseName "/og" $ext ) "" "." ) }}
+    {{ if ( fileExists ( print "static/" $ogImagePath ) ) }}
+    <meta property="og:image"       content="{{ $ogImagePath | absURL }}" />
     {{ end }}
+    {{ end }}
+    <meta name="twitter:card"       content="summary" />
+    {{ if .Site.Params.SNS.Twitter }}
+    <meta name="twitter:site"       content="@{{ $.Site.Params.SNS.Twitter }}" />
     {{ end }}
     <!-- /Open Graph -->
   </head>
