@@ -26,10 +26,6 @@
     <meta property="og:image"       content="{{ $ogImagePath | absURL }}" />
     <meta property="twitter:image"  content="{{ $ogImagePath | absURL }}" />
     <meta property="twitter:image:src"  content="{{ $ogImagePath | absURL }}" />
-    {{ else }}
-    <meta property="og:image"       content="{{ .Site.BaseURL }}common/og.png" />
-    <meta property="twitter:image"  content="{{ .Site.BaseURL }}common/og.png" />
-    <meta property="twitter:image:src"  content="{{ .Site.BaseURL }}common/og.png" />
     {{ end }}
     {{ end }}
     <meta name="twitter:card"       content="summary" />
