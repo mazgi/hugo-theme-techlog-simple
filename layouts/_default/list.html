@@ -5,14 +5,16 @@
     {{ range $idx, $page := $paginator.Pages }}
     <article>
       <div class="row">
-        <h1><a href="{{ .RelPermalink}}">{{ .Title }}</a></h1>
+        <h3><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
       </div>
-      {{ .Content }}
+      {{ .Summary }}
     </article>
     {{ if lt (add $idx 1) (len $paginator.Pages) }}
     <hr/>
     {{ end }}
     {{ end }}
+    <hr/>
+    {{ partial "pagination.html" . }}
   </div>
   <div class="col-lg-3">
     <ul>
