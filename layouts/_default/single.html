@@ -9,24 +9,7 @@
     </article>
   </div>
   <div class="col-lg-3">
-    <h4>Tags</h4>
-    {{ if .Params.Tags }}
-    <div>
-      {{ range .Params.Tags }}
-      <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
-    <hr />
-    <h4>Recents</h4>
-    <ul>
-      {{ $recents := .Parent.Pages | first 8 }}
-      {{ with $recents }}
-      {{ range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-      {{ end }}
-      {{ end }}
-    </ul>
+    {{ partial "sidebar.html" . }}
   </div>
 </div>
 {{ partial "footer.html" . }}

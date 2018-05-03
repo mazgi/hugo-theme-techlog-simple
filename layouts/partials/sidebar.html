@@ -1,0 +1,29 @@
+{{ with ( .Site.GetPage "page" "about" ) }}
+<h4>About</h4>
+{{ .Content }}
+<hr />
+{{ end }}
+<h4>Tags</h4>
+{{ with .Params.Tags }}
+<div>
+  {{ range . }}
+  <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+  {{ end }}
+</div>
+{{ end }}
+<hr />
+<h4>Categories</h4>
+{{ with .Site.Taxonomies.categories }}
+<div>
+  <ul>
+    {{ range $key, $value := . }}
+    <li>
+      <a href="{{ "/categories/" | relLangURL }}{{ $key | urlize }}">
+        {{ $key | humanize }}
+        <span class="badge badge-pill badge-light">{{ len $value }}</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

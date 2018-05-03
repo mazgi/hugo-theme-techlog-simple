@@ -3,25 +3,27 @@
   <div class="col-lg-9">
     {{ $paginator := .Paginate ( .Data.Pages ) }}
     {{ range $idx, $page := $paginator.Pages }}
+    {{ if $page.Section }}
     <article>
       <div class="row">
         <h3><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
       </div>
+      {{ with .Params.Tags }}
+      <div class="row">
+        {{ range . }}
+        <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
       {{ .Summary }}
     </article>
-    {{ if lt (add $idx 1) (len $paginator.Pages) }}
     <hr/>
     {{ end }}
     {{ end }}
-    <hr/>
     {{ partial "pagination.html" . }}
   </div>
   <div class="col-lg-3">
-    <ul>
-      {{ range .Data.Pages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-      {{ end }}
-    </ul>
+    {{ partial "sidebar.html" . }}
   </div>
 </div>
 {{ partial "footer.html" . }}
