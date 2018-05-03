@@ -1,31 +1,33 @@
-{{ with ( .Site.GetPage "page" "about" ) }}
-<h4>About</h4>
-{{ .Content }}
-<hr />
-{{ end }}
-{{ if not .IsNode }}
-<h4>Tags</h4>
-{{ with .Params.Tags }}
-<div>
-  {{ range . }}
-  <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+<div class="sidebar">
+  {{ with ( .Site.GetPage "page" "about" ) }}
+  <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+  {{ .Summary }}
+  <hr />
+  {{ end }}
+  {{ if not .IsNode }}
+  <h4><a href="{{ "/tags/" | relLangURL }}">Tags</a></h4>
+  {{ with .Params.Tags }}
+  <div>
+    {{ range . }}
+    <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+  <hr />
+  {{ end }}
+  <h4><a href="{{ "/categories/" | relLangURL }}">Categories</a></h4>
+  {{ with .Site.Taxonomies.categories }}
+  <div>
+    <ul>
+      {{ range $key, $value := . }}
+      <li>
+        <a href="{{ "/categories/" | relLangURL }}{{ $key | urlize }}">
+          {{ $key | humanize }}
+          <span class="badge badge-pill badge-light">{{ len $value }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
   {{ end }}
 </div>
-{{ end }}
-<hr />
-{{ end }}
-<h4>Categories</h4>
-{{ with .Site.Taxonomies.categories }}
-<div>
-  <ul>
-    {{ range $key, $value := . }}
-    <li>
-      <a href="{{ "/categories/" | relLangURL }}{{ $key | urlize }}">
-        {{ $key | humanize }}
-        <span class="badge badge-pill badge-light">{{ len $value }}</span>
-      </a>
-    </li>
-    {{ end }}
-  </ul>
-</div>
-{{ end }}
