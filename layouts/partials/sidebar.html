@@ -3,6 +3,7 @@
 {{ .Content }}
 <hr />
 {{ end }}
+{{ if not .IsNode }}
 <h4>Tags</h4>
 {{ with .Params.Tags }}
 <div>
@@ -12,6 +13,7 @@
 </div>
 {{ end }}
 <hr />
+{{ end }}
 <h4>Categories</h4>
 {{ with .Site.Taxonomies.categories }}
 <div>
