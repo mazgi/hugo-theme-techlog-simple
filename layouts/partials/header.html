@@ -86,7 +86,10 @@
             </div>
           </li>
           {{ end }}
-          {{ if not .IsHome }}
+          {{ if not .IsNode }}
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: {{ .Date.Format "2006.01.02" }}</span>
+          </li>
           <li class="nav-item">
             <span class="nav-link disabled">Updated At: {{ .Lastmod.Format "2006.01.02" }}</span>
           </li>
