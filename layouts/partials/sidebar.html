@@ -4,6 +4,9 @@
   {{ .Summary }}
   {{ end }}
   <hr />
+  <h4>TableOfContents</h4>
+  {{ .TableOfContents }}
+  <hr />
   <h4><a href="{{ "/categories/" | relLangURL }}">Categories</a></h4>
   {{ with .Params.Categories }}
   <div>
