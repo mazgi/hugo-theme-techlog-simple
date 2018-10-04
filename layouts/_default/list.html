@@ -8,14 +8,32 @@
       <div class="row">
         <h3><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
       </div>
-      {{ with .Params.Tags }}
       <div class="row">
+        <div class="col-lg-3">
+          <p>Updated At: {{ .Lastmod.Format "2006.01.02" }}</p>
+        </div>
+        <div class="col-lg-9">
+          {{ if .Params.Authors }}
+          <p>Author(s): 
+          {{ with .Params.Authors }}
+          {{ range . }}
+          <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+          {{ end }}
+          </p>
+          {{ end }}
+        </div>
+      </div>
+      <div class="row">
+        {{ .Summary }}
+      </div>
+      <div class="row">
+        {{ with .Params.Tags }}
         {{ range . }}
         <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
         {{ end }}
+        {{ end }}
       </div>
-      {{ end }}
-      {{ .Summary }}
     </article>
     <hr/>
     {{ end }}

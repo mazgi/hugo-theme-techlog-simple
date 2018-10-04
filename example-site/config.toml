@@ -16,6 +16,7 @@ enableRobotsTXT = true
 [taxonomies]
 category = "categories"
 tag = "tags"
+author = "authors"
 
 [languages]
 [languages.en]
