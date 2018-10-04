@@ -5,7 +5,7 @@
     <div class="row">
       <h2>{{ .Name }}'s articles</h2>
     </div>
-    {{ with ( .Site.GetPage "page" ( printf "profiles/%s" ( lower .Name ) ) ) }}
+    {{ with ( .Site.GetPage "page" ( printf "profiles/%s" ( replace .Name " " "-" | lower ) ) ) }}
     <div class="row">
       {{ .Content }}
     </div>
@@ -13,7 +13,7 @@
     {{ end }}
     {{ end }}
 
-    {{ $paginator := .Paginate ( .Data.Pages ) }}
+    {{ $paginator := .Paginate ( where .Data.Pages "Section" "ne" "profiles" ) }}
     {{ range $idx, $page := $paginator.Pages }}
     {{ if $page.Section }}
     <article>
