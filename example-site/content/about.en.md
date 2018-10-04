@@ -3,9 +3,9 @@ title: "About"
 date: 2018-05-03T06:39:45+09:00
 ---
 
-**John Doe**
+Admin: **John Doe**
 
-:sushi: :sake:
+:pizza: :beer:
 
 website: [hugo-theme-techlog-simple](https://github.com/mazgi/hugo-theme-techlog-simple)
 
