@@ -2,9 +2,9 @@ version: '2'
 services:
   website:
     build: .
-    working_dir: /PWD
+    working_dir: /techlog-simple/example-site
     command: hugo server --bind 0.0.0.0 --buildDrafts
     volumes:
-      - ./:/PWD
+      - ../:/techlog-simple
     ports:
       - '1313:1313'
