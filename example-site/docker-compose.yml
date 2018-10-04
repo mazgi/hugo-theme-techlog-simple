@@ -1,0 +1,10 @@
+version: '2'
+services:
+  website:
+    build: .
+    working_dir: /PWD
+    command: hugo server --bind 0.0.0.0 --buildDrafts
+    volumes:
+      - ./:/PWD
+    ports:
+      - '1313:1313'
