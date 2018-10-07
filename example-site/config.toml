@@ -2,7 +2,6 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "A Hugo theme"
 theme = "techlog-simple"
-themesDir = "../.."
 defaultContentLanguage = "en"
 # defaultContentLanguage = "ja"
 hasCJKLanguage = true
