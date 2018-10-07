@@ -1,6 +1,4 @@
 baseURL = "http://example.org/"
-relativeURLs = true
-canonifyURLs = true
 languageCode = "en-us"
 title = "A Hugo theme"
 theme = "techlog-simple"

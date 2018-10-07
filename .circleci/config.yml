@@ -9,7 +9,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: cd example-site && sed -i '1s/publishDir = "public/techlog-simple"\n/' config.toml
+      - run: cd example-site && sed -i '1ipublishDir = "public/techlog-simple"' config.toml
       - run:
           name: Build Website
           command: cd example-site && hugo --baseURL="https://${GCLOUD_PROJECT}.firebaseapp.com/techlog-simple" --themesDir="../.."
