@@ -9,14 +9,14 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: cd example-site && sed -i '1ipublishDir = "public/techlog-simple"' config.toml
-      - run: cd example-site && sed -i '1igoogleAnalytics = "'${GOOGLE_ANALYTICS_TRACKING_ID}'"' config.toml
+      - run: cd exampleSite && sed -i '1ipublishDir = "public/techlog-simple"' config.toml
+      - run: cd exampleSite && sed -i '1igoogleAnalytics = "'${GOOGLE_ANALYTICS_TRACKING_ID}'"' config.toml
       - run:
           name: Build Website
-          command: cd example-site && hugo --baseURL="https://${GCLOUD_PROJECT}.firebaseapp.com/techlog-simple" --themesDir="../.."
+          command: cd exampleSite && hugo --baseURL="https://${GCLOUD_PROJECT}.firebaseapp.com/techlog-simple" --themesDir="../.."
       - run:
           name: Deploy to Firebase
-          command: cd example-site && firebase deploy --project="${GCLOUD_PROJECT}" --token="${FIREBASE_TOKEN}"
+          command: cd exampleSite && firebase deploy --project="${GCLOUD_PROJECT}" --token="${FIREBASE_TOKEN}"
 
 workflows:
   version: 2

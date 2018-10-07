@@ -2,7 +2,7 @@ version: '2'
 services:
   website:
     build: .
-    working_dir: /techlog-simple/example-site
+    working_dir: /techlog-simple/exampleSite
     command: hugo server --themesDir="../.." --bind 0.0.0.0 --buildDrafts
     volumes:
       - ../:/techlog-simple
