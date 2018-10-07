@@ -21,4 +21,7 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - deploy_to_firebase
+      - deploy_to_firebase:
+          filters:
+            branches:
+              only: master
