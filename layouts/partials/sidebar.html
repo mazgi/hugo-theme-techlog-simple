@@ -13,7 +13,7 @@
     <ul>
       {{ range . }}
       <li>
-        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
       </li>
       {{ end }}
     </ul>
@@ -24,7 +24,7 @@
   {{ with .Params.Tags }}
   <div>
     {{ range . }}
-    <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    <a class="badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
     {{ end }}
   </div>
   {{ end }}

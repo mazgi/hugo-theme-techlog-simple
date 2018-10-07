@@ -27,7 +27,7 @@
         <span class="ml-1">Author(s): 
         {{ with .Params.Authors }}
         {{ range . }}
-        <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
         {{ end }}
         {{ end }}
         </span>
@@ -39,7 +39,7 @@
       <div class="row">
         {{ with .Params.Tags }}
         {{ range . }}
-        <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
         {{ end }}
         {{ end }}
       </div>

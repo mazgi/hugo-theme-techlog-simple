@@ -92,7 +92,7 @@
             <span class="nav-link disabled">Author(s): 
               {{ with .Params.Authors }}
               {{ range . }}
-              <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
               {{ end }}
               {{ end }}
             </span>
