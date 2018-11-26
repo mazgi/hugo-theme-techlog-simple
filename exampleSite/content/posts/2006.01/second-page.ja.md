@@ -7,6 +7,6 @@ authors: ['John', 'Smith']
 
 ## 私の2番目のポスト
 
-{{< figure src="/posts/2006.01/second-page/cat.jpeg" >}}
+{{< figure src="cat.jpeg" >}}
 
 かわいい猫の写真は[こちら](https://www.pexels.com/photo/grey-and-white-short-fur-cat-104827/)からお借りしました。
