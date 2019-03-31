@@ -1,7 +1,5 @@
 # Techlog Simple, A simple theme for [Hugo](https://gohugo.io/).
 
-[![CircleCI](https://circleci.com/gh/mazgi/hugo-theme-techlog-simple.svg?style=svg)](https://circleci.com/gh/mazgi/hugo-theme-techlog-simple)
-
 ![screenshot](https://raw.githubusercontent.com/mazgi/hugo-theme-techlog-simple/master/images/screenshot.png)
 
 [DEMO](https://mazgi-hugo-themes-gcp.firebaseapp.com/techlog-simple/)
