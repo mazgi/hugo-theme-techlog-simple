@@ -13,7 +13,7 @@
     {{ end }}
     {{ end }}
 
-    {{ $paginator := .Paginate ( where .Data.Pages "Section" "ne" "profiles" ) }}
+    {{ $paginator := .Paginate ( where .Site.RegularPages "Section" "ne" "profiles" ) }}
     {{ range $idx, $page := $paginator.Pages }}
     {{ if $page.Section }}
     <article>
