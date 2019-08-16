@@ -5,10 +5,11 @@ ENV DOCKERBUILD_HUGO_VERSION="0.57.0"
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN : 'Install packages' \
-      && apt update \
-      && apt install -y --no-install-recommends ca-certificates openssh-client curl git \
+      && apt-get update \
+      && apt-get install -y --no-install-recommends apt-utils \
+      && apt-get install -y --no-install-recommends ca-certificates openssh-client curl git \
       && : 'Download and install Hugo' \
       && curl -LO "https://github.com/gohugoio/hugo/releases/download/v${DOCKERBUILD_HUGO_VERSION}/hugo_${DOCKERBUILD_HUGO_VERSION}_Linux-64bit.deb" \
       && dpkg -i hugo_${DOCKERBUILD_HUGO_VERSION}_Linux-64bit.deb \
       && : 'Clean up' \
-      && apt clean
+      && apt-get clean
