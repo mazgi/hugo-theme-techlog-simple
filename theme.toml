@@ -8,7 +8,7 @@ description = "A simple Hugo theme for tech blog."
 homepage = "https://github.com/mazgi/hugo-theme-techlog-simple"
 tags = []
 features = []
-min_version = "0.36.1"
+min_version = "0.57.0"
 
 [author]
   name = "Hidenori MATSUKI"
