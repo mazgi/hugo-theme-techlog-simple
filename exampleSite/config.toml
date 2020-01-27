@@ -8,9 +8,18 @@ hasCJKLanguage = true
 enableEmoji = true
 pygmentsCodeFences = true
 pygmentsStyle = "friendly"
-enableGitInfo = true
+enableGitInfo = false
 enableRobotsTXT = true
 # googleAnalytics = "UA-00000000-1"
+
+[params]
+description = "A simple Hugo theme for tech blogs :)"
+
+[params.sns]
+github = "mazgi"
+twitter = "mazgi"
+instagram = "mazgi"
+# facebook = ""
 
 [taxonomies]
 category = "categories"
@@ -25,9 +34,3 @@ languageName = "English"
 [languages.ja]
 weight = 10
 languageName = "日本語"
-
-[params.sns]
-github = "mazgi"
-twitter = "mazgi"
-instagram = "mazgi"
-# facebook = ""

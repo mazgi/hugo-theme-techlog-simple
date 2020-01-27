@@ -20,7 +20,17 @@
     <meta property="og:type"        content="article" />
     {{ end }}
     <meta property="og:url"         content="{{ .Permalink }}" />
-    <meta property="og:description" content="{{ .Description }}" />
+    {{ if .Page.IsHome }}
+      {{ if .Site.Params.Description }}
+      <meta property="og:description" content="{{ .Site.Params.Description }}" />
+      {{ end }}
+    {{ else }}
+      {{ if .Description }}
+      <meta property="og:description" content="{{ .Description }}" />
+      {{ else if .Site.Params.Description }}
+      <meta property="og:description" content="{{ .Site.Params.Description }}" />
+      {{ end }}
+    {{ end }}
     {{ range $ext := ( slice "png" "jpg" "jpeg" ) }}
     {{ $ogImagePath := ( delimit ( slice $.File.Dir $.File.TranslationBaseName "/og" $ext ) "" "." ) }}
     {{ if ( fileExists ( print "static/" $ogImagePath ) ) }}
