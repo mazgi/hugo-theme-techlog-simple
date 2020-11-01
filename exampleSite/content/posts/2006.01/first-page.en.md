@@ -2,8 +2,9 @@
 title: "First Page"
 date: 2018-10-04T05:12:12Z
 description: "My first post"
-tags: ["hugo", "example"]
 authors: ["John", "Jugemu Jugemu Gokoh no Surikire"]
+categories: ["example-category-a", "cat-b"]
+tags: ["example-tag-a"]
 ---
 
 ## My first post
