@@ -10,6 +10,8 @@ tags: ["example-tag-a", "tag-b"]
 
 {{< figure src="cat.jpeg" >}}
 
+![cat]("cat.jpeg")
+
 かわいい猫の写真は[こちら](https://www.pexels.com/photo/grey-and-white-short-fur-cat-104827/)からお借りしました。
 
 <!--more-->

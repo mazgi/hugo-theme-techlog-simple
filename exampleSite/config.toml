@@ -1,16 +1,27 @@
 baseURL = "https://example.org/"
-languageCode = "en-us"
-title = "A Hugo Theme"
-theme = "techlog-simple"
+canonifyURLs = true
 defaultContentLanguage = "en"
 # defaultContentLanguage = "ja"
-hasCJKLanguage = true
+defaultContentLanguageInSubdir = true
 enableEmoji = true
-pygmentsCodeFences = true
-pygmentsStyle = "friendly"
 enableGitInfo = false
 enableRobotsTXT = true
 # googleAnalytics = "UA-00000000-1"
+hasCJKLanguage = true
+languageCode = "en-us"
+pygmentsCodeFences = true
+pygmentsStyle = "friendly"
+title = "A Hugo Theme"
+theme = "techlog-simple"
+
+[languages]
+[languages.en]
+languageName = "English"
+weight = 1
+
+[languages.ja]
+languageName = "日本語"
+weight = 10
 
 [params]
 description = "A simple Hugo theme for tech blogs :)"
@@ -25,12 +36,3 @@ twitter = "mazgi"
 author = "authors"
 category = "categories"
 tag = "tags"
-
-[languages]
-[languages.en]
-weight = 1
-languageName = "English"
-
-[languages.ja]
-weight = 10
-languageName = "日本語"
