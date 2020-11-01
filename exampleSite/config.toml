@@ -1,6 +1,6 @@
 baseURL = "https://example.org/"
 languageCode = "en-us"
-title = "A Hugo theme"
+title = "A Hugo Theme"
 theme = "techlog-simple"
 defaultContentLanguage = "en"
 # defaultContentLanguage = "ja"
@@ -16,15 +16,15 @@ enableRobotsTXT = true
 description = "A simple Hugo theme for tech blogs :)"
 
 [params.sns]
-github = "mazgi"
-twitter = "mazgi"
-instagram = "mazgi"
 # facebook = ""
+github = "mazgi"
+instagram = "mazgi"
+twitter = "mazgi"
 
 [taxonomies]
+author = "authors"
 category = "categories"
 tag = "tags"
-author = "authors"
 
 [languages]
 [languages.en]

@@ -1,7 +1,11 @@
 {{ partial "header.html" . }}
 <div class="row">
   <div class="col-lg-9">
-    {{ if and ( eq .Kind "taxonomy" ) ( eq .Type "authors" ) }}
+
+    <!-- content header -->
+
+    <!-- /authors/* -->
+    {{ if and ( eq .Kind "term" ) ( eq .Type "authors" ) }}
     <div class="row">
       <h2>{{ .Name }}'s articles</h2>
     </div>
@@ -11,14 +15,30 @@
     </div>
     <hr/>
     {{ end }}
-    {{ end }}
 
-    {{ $paginator := .Paginate ( where .Site.RegularPages "Section" "ne" "profiles" ) }}
+    <!-- /categories/* -->
+    {{ else if and ( eq .Kind "term" ) ( eq .Type "categories" ) }}
+    <div class="row">
+      <h2>{{ .Name }}</h2>
+    </div>
+
+    <!-- /tags/* -->
+    {{ else if and ( eq .Kind "term" ) ( eq .Type "tags" ) }}
+    <div class="row">
+      <h2>{{ .Name }}</h2>
+    </div>
+
+    <!-- / -->
+    {{ else }}
+    {{ end }}
+    
+    <!-- contents -->
+    {{ $paginator := .Paginate ( where .Data.Pages "Section" "ne" "profiles" ) }}
     {{ range $idx, $page := $paginator.Pages }}
     {{ if $page.Section }}
     <article>
       <div class="row">
-        <h3><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       </div>
       <div class="row">
         <span class="ml-1">Created At: {{ .Date.Format "2006.01.02" }}</span>
@@ -28,10 +48,10 @@
         {{ with .Params.Authors }}
         {{ range . }}
         <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
-        {{ end }}
-        {{ end }}
+        {{ end }} <!-- end of range -->
+        {{ end }} <!-- end of with -->
         </span>
-        {{ end }}
+        {{ end }} <!-- end of if -->
       </div>
       <div class="row">
         {{ .Summary }}
@@ -40,13 +60,13 @@
         {{ with .Params.Tags }}
         {{ range . }}
         <a class="ml-1 badge badge-pill badge-secondary" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
-        {{ end }}
-        {{ end }}
+        {{ end }} <!-- end of range -->
+        {{ end }} <!-- end of with -->
       </div>
     </article>
     <hr/>
-    {{ end }}
-    {{ end }}
+    {{ end }} <!-- end of if -->
+    {{ end }} <!-- end of range -->
     {{ partial "pagination.html" . }}
   </div>
 

@@ -8,8 +8,8 @@ description = "A simple Hugo theme for tech blog."
 homepage = "https://github.com/mazgi/hugo-theme-techlog-simple"
 tags = []
 features = []
-min_version = "0.57.0"
+min_version = "0.76.0"
 
 [author]
   name = "Hidenori Matsuki"
-  homepage = "https://mazgi.com/"
+  homepage = "https://mazgi.github.io/"

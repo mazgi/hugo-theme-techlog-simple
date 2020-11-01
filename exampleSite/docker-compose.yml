@@ -7,7 +7,12 @@ services:
         UID: ${UID:-0}
         GID: ${GID:-0}
     working_dir: /techlog-simple/exampleSite
-    command: hugo server --bind 0.0.0.0 --buildDrafts --themesDir="../.."
+    command: >
+      hugo server
+      --baseURL http://$BIND_IP_ADDR:1313
+      --bind 0.0.0.0
+      --buildDrafts
+      --themesDir="../.."
     volumes:
       - ../:/techlog-simple
     ports:

@@ -2,8 +2,9 @@
 title: "最初のページ"
 date: 2018-10-04T05:12:12Z
 description: "私の最初のポスト"
-tags: ["hugo", "example"]
 authors: ["John", "Jugemu Jugemu Gokoh no Surikire"]
+categories: ["example-category-a", "cat-b"]
+tags: ["example-tag-a"]
 ---
 
 ## 私の最初のポスト
