@@ -3,7 +3,7 @@
 
 name = "Techlog Simple"
 license = "MIT"
-licenselink = "https://github.com/mazgi/hugo-theme-techlog-simple/blob/master/LICENSE.md"
+licenselink = "https://github.com/mazgi/hugo-theme-techlog-simple/blob/main/LICENSE.md"
 description = "A simple Hugo theme for tech blog."
 homepage = "https://github.com/mazgi/hugo-theme-techlog-simple"
 tags = []
@@ -11,5 +11,5 @@ features = []
 min_version = "0.57.0"
 
 [author]
-  name = "Hidenori MATSUKI"
+  name = "Hidenori Matsuki"
   homepage = "https://mazgi.com/"

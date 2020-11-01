@@ -1,6 +1,6 @@
 # Techlog Simple, A simple theme for [Hugo](https://gohugo.io/).
 
-![screenshot](https://raw.githubusercontent.com/mazgi/hugo-theme-techlog-simple/master/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/mazgi/hugo-theme-techlog-simple/main/images/screenshot.png)
 
 [DEMO](https://mazgi-hugo-themes-gcp.firebaseapp.com/techlog-simple/)
 
@@ -29,7 +29,7 @@ After installing the theme successfully it requires a just a few more steps to g
 
 ### The config file
 
-Take a look inside the [`exampleSite`](https://github.com/mazgi/hugo-theme-techlog-simple/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/mazgi/hugo-theme-techlog-simple/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/mazgi/hugo-theme-techlog-simple/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
+Take a look inside the [`exampleSite`](https://github.com/mazgi/hugo-theme-techlog-simple/tree/main/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/mazgi/hugo-theme-techlog-simple/blob/main/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/mazgi/hugo-theme-techlog-simple/blob/main/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
 
 ### Nearly finished
 
